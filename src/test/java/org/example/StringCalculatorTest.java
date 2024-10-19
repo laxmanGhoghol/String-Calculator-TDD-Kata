@@ -63,4 +63,11 @@ class StringCalculatorTest {
         assertEquals(4, result);
     }
 
+    @Test
+    void shouldGiveErrorWhenGivenNegativeNumbers(){
+        assertThrows(NegativeNumberException.class, ()->{
+            stringCalculator.add("//,\n-2,4");
+        });
+    }
+
 }

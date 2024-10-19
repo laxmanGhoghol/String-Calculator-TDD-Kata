@@ -1,8 +1,10 @@
 package org.example;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class StringCalculator {
 
@@ -21,10 +23,10 @@ public class StringCalculator {
         String[] numbers = formattedInput.replace('\n', ',')
                 .split(delimiter);
 
-        Optional<Integer> optionalNegative = Arrays.stream(numbers).map(Integer::parseInt).filter(num -> num < 0).findAny();
+        List<Integer> negativeNumbers = Arrays.stream(numbers).map(Integer::parseInt).filter(num -> num < 0).toList();
 
-        if(optionalNegative.isPresent()){
-            throw new NegativeNumberException("negative numbers not allowed -2");
+        if(!negativeNumbers.isEmpty()){
+            throw new NegativeNumberException("negative numbers not allowed " + negativeNumbers);
         }
 
         return Arrays.stream(numbers).map(Integer::parseInt)

@@ -21,4 +21,12 @@ class StringCalculatorTest {
 
         assertEquals(1, result);
     }
+
+    @Test
+    void shouldGiveSumAsTwoWhenGivenTwoAsSingleNumber(){
+        StringCalculator stringCalculator = new StringCalculator();
+        Integer result = stringCalculator.add("2");
+
+        assertEquals(2, result);
+    }
 }

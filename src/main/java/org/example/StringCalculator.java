@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.Arrays;
+import java.util.Optional;
 import java.util.regex.Pattern;
 
 public class StringCalculator {
@@ -19,6 +20,12 @@ public class StringCalculator {
 
         String[] numbers = formattedInput.replace('\n', ',')
                 .split(delimiter);
+
+        Optional<Integer> optionalNegative = Arrays.stream(numbers).map(Integer::parseInt).filter(num -> num < 0).findAny();
+
+        if(optionalNegative.isPresent()){
+            throw new NegativeNumberException();
+        }
 
         return Arrays.stream(numbers).map(Integer::parseInt)
                 .reduce(0, Integer::sum);

@@ -95,4 +95,11 @@ class StringCalculatorTest {
         assertEquals(9, result);
     }
 
+    @Test
+    void shouldIgnoreWhiteSpacesAfterDelimiter(){
+        Integer result = stringCalculator.add("3, 4, , ,  ");
+
+        assertEquals(7, result);
+    }
+
 }

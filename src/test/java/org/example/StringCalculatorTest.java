@@ -27,4 +27,11 @@ class StringCalculatorTest {
 
         assertEquals(2, result);
     }
+
+    @Test
+    void shouldGiveZeroWhenGivenNullInput(){
+        Integer result = stringCalculator.add(null);
+
+        assertEquals(0, result);
+    }
 }

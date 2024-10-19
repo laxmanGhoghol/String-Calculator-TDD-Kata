@@ -2,9 +2,7 @@ package org.example;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 public class StringCalculator {
 
@@ -23,13 +21,16 @@ public class StringCalculator {
         String[] numbers = formattedInput.replace('\n', ',')
                 .split(delimiter);
 
-        List<Integer> negativeNumbers = Arrays.stream(numbers).map(String::trim).filter(str -> !str.isEmpty()).map(Integer::parseInt).filter(num -> num < 0).toList();
+        List<Integer> negativeNumbers = extractIntegers(numbers).stream().filter(num -> num < 0).toList();
 
         if(!negativeNumbers.isEmpty()){
             throw new NegativeNumberException("negative numbers not allowed " + negativeNumbers);
         }
 
-        return Arrays.stream(numbers).map(String::trim).filter(str -> !str.isEmpty()).map(Integer::parseInt)
-                .reduce(0, Integer::sum);
+        return extractIntegers(numbers).stream().reduce(0, Integer::sum);
+    }
+
+    private List<Integer> extractIntegers(String[] numbers){
+        return Arrays.stream(numbers).map(String::trim).filter(str -> !str.isEmpty()).map(Integer::parseInt).toList();
     }
 }

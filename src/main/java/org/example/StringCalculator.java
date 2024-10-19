@@ -12,11 +12,9 @@ public class StringCalculator {
         String delimiter = ",";
         String formattedInput = input;
         if(input.startsWith("//")){
-            StringBuilder stringBuilder = new StringBuilder(input);
-            int indexOfNewLine = stringBuilder.indexOf("\n");
-            delimiter = Pattern.quote(stringBuilder.substring(2, indexOfNewLine));
-            stringBuilder.delete(0, indexOfNewLine+1);
-            formattedInput = stringBuilder.toString();
+            int indexOfNewLine = input.indexOf("\n");
+            delimiter = Pattern.quote(input.substring(2, indexOfNewLine));
+            formattedInput = input.substring(indexOfNewLine+1);
         }
 
         String[] numbers = formattedInput.replace('\n', ',')

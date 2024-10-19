@@ -24,7 +24,7 @@ public class StringCalculator {
         Optional<Integer> optionalNegative = Arrays.stream(numbers).map(Integer::parseInt).filter(num -> num < 0).findAny();
 
         if(optionalNegative.isPresent()){
-            throw new NegativeNumberException();
+            throw new NegativeNumberException("negative numbers not allowed -2");
         }
 
         return Arrays.stream(numbers).map(Integer::parseInt)

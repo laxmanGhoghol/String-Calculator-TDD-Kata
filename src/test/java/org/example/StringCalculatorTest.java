@@ -49,4 +49,11 @@ class StringCalculatorTest {
         assertEquals(6, result);
     }
 
+    @Test
+    void shouldSupportGivenDelimitersInInput(){
+        Integer result = stringCalculator.add("//;\n1;2");
+
+        assertEquals(3, result);
+    }
+
 }

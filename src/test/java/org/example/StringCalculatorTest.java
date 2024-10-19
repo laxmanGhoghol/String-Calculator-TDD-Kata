@@ -56,4 +56,11 @@ class StringCalculatorTest {
         assertEquals(3, result);
     }
 
+    @Test
+    void shouldSupportDifferentDelimiterPeriodGivenInInput(){
+        Integer result = stringCalculator.add("//.\n2.2");
+
+        assertEquals(4, result);
+    }
+
 }

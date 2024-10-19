@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.Arrays;
+import java.util.regex.Pattern;
 
 public class StringCalculator {
 
@@ -13,7 +14,7 @@ public class StringCalculator {
         if(input.startsWith("//")){
             StringBuilder stringBuilder = new StringBuilder(input);
             int indexOfNewLine = stringBuilder.indexOf("\n");
-            delimiter = ";";
+            delimiter = Pattern.quote(stringBuilder.substring(2, indexOfNewLine));
             stringBuilder.delete(0, indexOfNewLine+1);
             formattedInput = stringBuilder.toString();
         }

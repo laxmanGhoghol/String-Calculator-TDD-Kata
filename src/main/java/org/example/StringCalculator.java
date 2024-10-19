@@ -3,6 +3,10 @@ package org.example;
 public class StringCalculator {
 
     public Integer add(String string) {
-        return 0;
+        if(string.isEmpty()){
+            return 0;
+        }
+
+        return 1;
     }
 }

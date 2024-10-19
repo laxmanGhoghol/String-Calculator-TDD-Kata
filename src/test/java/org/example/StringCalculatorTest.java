@@ -13,4 +13,12 @@ class StringCalculatorTest {
 
         assertEquals(0, result);
     }
+
+    @Test
+    void shouldGiveSumWhenGivenSingleNumber(){
+        StringCalculator stringCalculator = new StringCalculator();
+        Integer result = stringCalculator.add("1");
+
+        assertEquals(1, result);
+    }
 }

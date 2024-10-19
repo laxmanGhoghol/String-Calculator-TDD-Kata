@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class StringCalculatorTest {
+    StringCalculator stringCalculator = new StringCalculator();
 
     @Test
     void shouldReturnZeroWhenGivenEmptyString(){
-        StringCalculator stringCalculator = new StringCalculator();
         Integer result = stringCalculator.add("");
 
         assertEquals(0, result);
@@ -16,7 +16,6 @@ class StringCalculatorTest {
 
     @Test
     void shouldGiveSumWhenGivenSingleNumber(){
-        StringCalculator stringCalculator = new StringCalculator();
         Integer result = stringCalculator.add("1");
 
         assertEquals(1, result);
@@ -24,7 +23,6 @@ class StringCalculatorTest {
 
     @Test
     void shouldGiveSumAsTwoWhenGivenTwoAsSingleNumber(){
-        StringCalculator stringCalculator = new StringCalculator();
         Integer result = stringCalculator.add("2");
 
         assertEquals(2, result);

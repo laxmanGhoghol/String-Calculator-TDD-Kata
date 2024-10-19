@@ -2,11 +2,16 @@ package org.example;
 
 public class StringCalculator {
 
-    public Integer add(String string) {
-        if(string == null || string.isEmpty()){
+    public Integer add(String input) {
+        if (input == null || input.isEmpty()) {
             return 0;
         }
-
-        return Integer.valueOf(string);
+        String[] numbers = input.split(",");
+        int sum = 0;
+        for (String number : numbers) {
+            int parsedNumber = Integer.parseInt(number);
+            sum += parsedNumber;
+        }
+        return sum;
     }
 }

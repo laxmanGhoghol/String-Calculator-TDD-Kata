@@ -70,4 +70,13 @@ class StringCalculatorTest {
         });
     }
 
+    @Test
+    void shouldGiveErrorMessageWithGivenNegativeNumbers(){
+        NegativeNumberException negativeNumberException = assertThrows(NegativeNumberException.class, () -> {
+            stringCalculator.add("//,\n-2,4");
+        });
+
+        assertEquals("negative numbers not allowed -2", negativeNumberException.getMessage());
+    }
+
 }

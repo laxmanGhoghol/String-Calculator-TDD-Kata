@@ -34,4 +34,11 @@ class StringCalculatorTest {
 
         assertEquals(0, result);
     }
+
+    @Test
+    void shouldGiveSumOfGivenTwoNumbers(){
+        Integer result = stringCalculator.add("1,2");
+
+        assertEquals(3, result);
+    }
 }

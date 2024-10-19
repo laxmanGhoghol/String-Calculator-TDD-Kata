@@ -76,7 +76,7 @@ class StringCalculatorTest {
             stringCalculator.add("//,\n-2,4");
         });
 
-        assertEquals("negative numbers not allowed -2", negativeNumberException.getMessage());
+        assertEquals("negative numbers not allowed [-2]", negativeNumberException.getMessage());
     }
 
     @Test
@@ -85,7 +85,7 @@ class StringCalculatorTest {
             stringCalculator.add("//,\n-2,-4,1,-3,5");
         });
 
-        assertEquals("negative numbers not allowed -2,-4,-3", negativeNumberException.getMessage());
+        assertEquals("negative numbers not allowed [-2, -4, -3]", negativeNumberException.getMessage());
     }
 
 }

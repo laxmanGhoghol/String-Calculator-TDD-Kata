@@ -23,13 +23,13 @@ public class StringCalculator {
         String[] numbers = formattedInput.replace('\n', ',')
                 .split(delimiter);
 
-        List<Integer> negativeNumbers = Arrays.stream(numbers).map(Integer::parseInt).filter(num -> num < 0).toList();
+        List<Integer> negativeNumbers = Arrays.stream(numbers).map(String::trim).map(Integer::parseInt).filter(num -> num < 0).toList();
 
         if(!negativeNumbers.isEmpty()){
             throw new NegativeNumberException("negative numbers not allowed " + negativeNumbers);
         }
 
-        return Arrays.stream(numbers).map(Integer::parseInt)
+        return Arrays.stream(numbers).map(String::trim).map(Integer::parseInt)
                 .reduce(0, Integer::sum);
     }
 }

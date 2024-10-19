@@ -88,4 +88,11 @@ class StringCalculatorTest {
         assertEquals("negative numbers not allowed [-2, -4, -3]", negativeNumberException.getMessage());
     }
 
+    @Test
+    void shouldIgnoreWhiteSpacesBetween(){
+        Integer result = stringCalculator.add("  2  ,  3 \n 4");
+
+        assertEquals(9, result);
+    }
+
 }

@@ -65,25 +65,19 @@ class StringCalculatorTest {
 
     @Test
     void shouldGiveErrorWhenGivenNegativeNumbers(){
-        assertThrows(NegativeNumberException.class, ()->{
-            stringCalculator.add("//,\n-2,4");
-        });
+        assertThrows(NegativeNumberException.class, ()-> stringCalculator.add("//,\n-2,4"));
     }
 
     @Test
     void shouldGiveErrorMessageWithGivenNegativeNumbers(){
-        NegativeNumberException negativeNumberException = assertThrows(NegativeNumberException.class, () -> {
-            stringCalculator.add("//,\n-2,4");
-        });
+        NegativeNumberException negativeNumberException = assertThrows(NegativeNumberException.class, () -> stringCalculator.add("//,\n-2,4"));
 
         assertEquals("negative numbers not allowed [-2]", negativeNumberException.getMessage());
     }
 
     @Test
     void shouldGiveErrorMessageWithGivenMultipleNegativeNumbers(){
-        NegativeNumberException negativeNumberException = assertThrows(NegativeNumberException.class, () -> {
-            stringCalculator.add("//,\n-2,-4,1,-3,5");
-        });
+        NegativeNumberException negativeNumberException = assertThrows(NegativeNumberException.class, () -> stringCalculator.add("//,\n-2,-4,1,-3,5"));
 
         assertEquals("negative numbers not allowed [-2, -4, -3]", negativeNumberException.getMessage());
     }
